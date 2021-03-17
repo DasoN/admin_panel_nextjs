@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    height: 80px;
+    background-color: aquamarine;
+    color: white;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.header a{
+    margin-right: 1rem;
+    text-decoration: none;
+    color: white;
+}
+
