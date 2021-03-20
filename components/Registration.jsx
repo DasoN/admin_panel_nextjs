@@ -1,38 +1,33 @@
-import {connect} from 'react-redux'
-import { useRouter } from 'next/router'
+import Main from '../components/Main'
 import { InputLabel, Input, InputAdornment, IconButton, Button} from '@material-ui/core';
 import React from 'react'
-import Main from '../components/Main';
 
-export default function LoginForm({ loginUser, onLoginProfile}){
+export default function Reg({users ,onRegistrationProfile}) {
+  const [values, setValues] = React.useState({
+    showPassword: 'password',
+    name: '',
+    password: '',
+  });
 
-    const router = useRouter()
-    const [values, setValues] = React.useState({
-        showPassword: 'password',
-        user: '',
-        password: '',
-      });
+  function sendData (){
+      onRegistrationProfile(values.name, values.password)
 
-      const handleClickShowPassword = () => {
-        
-      };
+      console.log(users)
+  }
 
-
-      const onLoginHandler = () => {
-            onLoginProfile(values.user, values.password)
-            router.push('/profile')
-      }
-
+  const handleClickShowPassword = () => {
+    setValues({...values, showPassword: 'text'})
+  };
     return (
-        <Main>
+      <Main>
                 <form>
-                    <InputLabel htmlFor="standard-user">user</InputLabel>
+                    <InputLabel htmlFor="standard-name">Username</InputLabel>
                     <Input
-                        id="standard-user"
+                        id="standard-name"
                         type="text"
-                        value={values.user}
-                        onChange={ev => setValues({user: ev.target.value})}
-                        name="user"
+                        value={values.name}
+                        onChange={ev => setValues({name: ev.target.value})}
+                        name="name"
                     />
                     <br/>
                     <br/>
@@ -41,7 +36,10 @@ export default function LoginForm({ loginUser, onLoginProfile}){
                         id="standard-adornment-password"
                         type={values.showPassword ? 'text' : 'password'}
                         value={values.password}
-                        onChange={ev => setValues({...values, password: ev.target.value})}
+                        onChange={ev => setValues(prev => ({
+                          ...prev,
+                           password: ev.target.value
+                          }))}
                         name="password"
                         endAdornment={
                         <InputAdornment position="end">
@@ -55,11 +53,10 @@ export default function LoginForm({ loginUser, onLoginProfile}){
                     />
                     <br/>
                     <br/>
-                    <Button variant="contained" onClick={onLoginHandler} color="primary">
+                    <Button variant="contained" onClick={sendData} color="primary" href="#contained-buttons">
                         Login
                     </Button>
-                </form> 
-        </Main>
-                
+                </form>
+      </Main>
     )
-}
+  }

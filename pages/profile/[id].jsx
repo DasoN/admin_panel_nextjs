@@ -24,7 +24,7 @@ function Profile({state}) {
 
 function putStateToProps (state) {
     return {
-        state
+        state: state.users
     }
 }
 
