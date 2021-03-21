@@ -1,7 +1,7 @@
 .header {
     display: flex;
     height: 80px;
-    background-color: aquamarine;
+    background-color:cornflowerblue;
     color: white;
     justify-content:flex-end;
     align-items:center;
@@ -10,6 +10,13 @@
 .header a{
     margin-right: 1rem;
     text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1px;
+    margin-right: 30px;
+    font-size: 30px;
     color: white;
 }
 
+.header a:hover{
+    text-decoration: underline;
+}

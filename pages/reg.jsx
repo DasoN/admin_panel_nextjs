@@ -1,10 +1,10 @@
 import {connect} from 'react-redux'
 import Registration from '../components/Containers/RegistrationContainer'
-import {onRegistrationProfile} from '../store/variables'
+import {onRegistrationProfile, onLoginProfile} from '../store/variables'
 
-function RegistrationRoute({users, onRegistrationProfile}){
+function RegistrationRoute({users, onRegistrationProfile, onLoginProfile}){
     return (
-        <Registration users={users} onRegistrationProfile={onRegistrationProfile}/>
+        <Registration users={users} onRegistrationProfile={onRegistrationProfile} onLoginProfile={onLoginProfile}/>
     )
 }
 
@@ -15,5 +15,5 @@ function putStateToProps(state){
 }
 
 export default connect(putStateToProps, {
-  onRegistrationProfile
+  onRegistrationProfile, onLoginProfile
 })(RegistrationRoute)

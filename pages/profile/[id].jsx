@@ -17,7 +17,9 @@ function Profile({state}) {
       })
     return (
       <Main>
-        <h1>Your name is {userState.username}</h1>
+        <h1>Hey {userState.username}</h1>
+        <hr/>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores temporibus inventore, accusantium minus provident necessitatibus ut quam, error, corporis quaerat dolores quia. Similique ipsam corporis nisi enim mollitia repellat officiis.</p>
       </Main>
     )
   }

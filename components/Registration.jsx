@@ -1,8 +1,10 @@
 import Main from '../components/Main'
 import { InputLabel, Input, InputAdornment, IconButton, Button} from '@material-ui/core';
+import { useRouter } from 'next/router'
 import React from 'react'
 
-export default function Reg({users ,onRegistrationProfile}) {
+export default function Reg({users ,onRegistrationProfile, onLoginProfile}) {
+  const route = useRouter()
   const [values, setValues] = React.useState({
     showPassword: 'password',
     name: '',
@@ -11,8 +13,8 @@ export default function Reg({users ,onRegistrationProfile}) {
 
   function sendData (){
       onRegistrationProfile(values.name, values.password)
-
-      console.log(users)
+      onLoginProfile(values.name, values.password)
+      route.push('/profile/')
   }
 
   const handleClickShowPassword = () => {
@@ -20,6 +22,8 @@ export default function Reg({users ,onRegistrationProfile}) {
   };
     return (
       <Main>
+            <h1>Registration form</h1>
+            <br/>
                 <form>
                     <InputLabel htmlFor="standard-name">Username</InputLabel>
                     <Input
@@ -53,8 +57,8 @@ export default function Reg({users ,onRegistrationProfile}) {
                     />
                     <br/>
                     <br/>
-                    <Button variant="contained" onClick={sendData} color="primary" href="#contained-buttons">
-                        Login
+                    <Button variant="contained" onClick={sendData} color="primary">
+                        Registration 
                     </Button>
                 </form>
       </Main>

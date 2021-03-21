@@ -1,7 +1,7 @@
 import Registation from '../Registration'
 
-export default function Reg({users, onRegistrationProfile}) {
+export default function Reg({users, onRegistrationProfile, onLoginProfile}) {
   return (
-        <Registation users={users} onRegistrationProfile={onRegistrationProfile}/>
+        <Registation users={users} onRegistrationProfile={onRegistrationProfile} onLoginProfile={onLoginProfile}/>
   )
 }

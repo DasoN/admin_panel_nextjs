@@ -25,8 +25,10 @@ export default function LoginForm({ loginUser, onLoginProfile}){
 
     return (
         <Main>
+            <h1>Login form</h1>
+            <br/>
                 <form>
-                    <InputLabel htmlFor="standard-user">user</InputLabel>
+                    <InputLabel htmlFor="standard-user">Username</InputLabel>
                     <Input
                         id="standard-user"
                         type="text"
